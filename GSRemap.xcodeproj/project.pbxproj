@@ -1,0 +1,409 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		036AF6E00948847E2401750B /* ExtraViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB3A384864C55216590C4B1 /* ExtraViews.swift */; };
+		0F1BC14042596EA39C20D35A /* GSStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E003F650A30B91B7C647BD /* GSStyle.swift */; };
+		35EEBC6F1B0191C36EA3CFED /* SCCore in Frameworks */ = {isa = PBXBuildFile; productRef = D6E935097B3641557F432E73 /* SCCore */; };
+		40EF014A1E37290DBB4BA354 /* RemapDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14F2FF2AFD03ECE7199B3A8 /* RemapDialog.swift */; };
+		5AC316F4DF055409360CA884 /* GSRemapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AAC00E8B0308802AB05961 /* GSRemapApp.swift */; };
+		68EF2D0683C7CC971069F1BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64C75F8ABE9185D908515776 /* Assets.xcassets */; };
+		6F7323839091EFC5B7BEACB5 /* PrintChar21.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B43EEE10F07960386B61046E /* PrintChar21.ttf */; };
+		B113DFF81D2CAA21D6FF428A /* Shaston640.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1F5B91530220FAE72661298 /* Shaston640.ttf */; };
+		B306E3D9EF8068F5C5CB76BB /* Menus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F85A81A354450E0566EDF5E /* Menus.swift */; };
+		BB027D7FB2CD1169FE5A452E /* Printing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128C51D8244A07919905FAE6 /* Printing.swift */; };
+		BF5BCDEDF7445C30DEF4D2AF /* DesktopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8ABB44A7B72F06DBA1C8B0 /* DesktopView.swift */; };
+		C84BD159B0A53EE47DF3259F /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7256195D06BB349B145F713B /* AppModel.swift */; };
+		CAE7FA4E4929C044CD9E02B9 /* ShastonLicense.txt in Resources */ = {isa = PBXBuildFile; fileRef = BA71C4A8E2390E368D9EFA3D /* ShastonLicense.txt */; };
+		DA2E9DDBE3B265B9422D5404 /* Shaston320.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C4192B68B613825B2BE6BF9F /* Shaston320.ttf */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		01299F907BEC5773BB7C4CC7 /* GSRemap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GSRemap.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0C8ABB44A7B72F06DBA1C8B0 /* DesktopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesktopView.swift; sourceTree = "<group>"; };
+		128C51D8244A07919905FAE6 /* Printing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Printing.swift; sourceTree = "<group>"; };
+		52E003F650A30B91B7C647BD /* GSStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSStyle.swift; sourceTree = "<group>"; };
+		5BB3A384864C55216590C4B1 /* ExtraViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraViews.swift; sourceTree = "<group>"; };
+		5F85A81A354450E0566EDF5E /* Menus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menus.swift; sourceTree = "<group>"; };
+		64C75F8ABE9185D908515776 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7256195D06BB349B145F713B /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		87AAC00E8B0308802AB05961 /* GSRemapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSRemapApp.swift; sourceTree = "<group>"; };
+		B43EEE10F07960386B61046E /* PrintChar21.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PrintChar21.ttf; sourceTree = "<group>"; };
+		BA71C4A8E2390E368D9EFA3D /* ShastonLicense.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = ShastonLicense.txt; sourceTree = "<group>"; };
+		C14F2FF2AFD03ECE7199B3A8 /* RemapDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemapDialog.swift; sourceTree = "<group>"; };
+		C4192B68B613825B2BE6BF9F /* Shaston320.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Shaston320.ttf; sourceTree = "<group>"; };
+		C7A0530602306E6F2E2318D6 /* GS Remap */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "GS Remap"; path = .; sourceTree = SOURCE_ROOT; };
+		F1F5B91530220FAE72661298 /* Shaston640.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Shaston640.ttf; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F434CA9C7928C838003ABD94 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35EEBC6F1B0191C36EA3CFED /* SCCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1846AC6F724674A1BBD7C1A3 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				C7A0530602306E6F2E2318D6 /* GS Remap */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		31CD72E5D6ADC1BB6F72F99D /* App */ = {
+			isa = PBXGroup;
+			children = (
+				7256195D06BB349B145F713B /* AppModel.swift */,
+				64C75F8ABE9185D908515776 /* Assets.xcassets */,
+				0C8ABB44A7B72F06DBA1C8B0 /* DesktopView.swift */,
+				5BB3A384864C55216590C4B1 /* ExtraViews.swift */,
+				87AAC00E8B0308802AB05961 /* GSRemapApp.swift */,
+				52E003F650A30B91B7C647BD /* GSStyle.swift */,
+				5F85A81A354450E0566EDF5E /* Menus.swift */,
+				128C51D8244A07919905FAE6 /* Printing.swift */,
+				C14F2FF2AFD03ECE7199B3A8 /* RemapDialog.swift */,
+				8B620FA2754750CCCF52ABE0 /* Fonts */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		5BBFB2008455BC8A6A9AEF17 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				01299F907BEC5773BB7C4CC7 /* GSRemap.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8B620FA2754750CCCF52ABE0 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				B43EEE10F07960386B61046E /* PrintChar21.ttf */,
+				C4192B68B613825B2BE6BF9F /* Shaston320.ttf */,
+				F1F5B91530220FAE72661298 /* Shaston640.ttf */,
+				BA71C4A8E2390E368D9EFA3D /* ShastonLicense.txt */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		B1B92BD04EA134116749A9DA = {
+			isa = PBXGroup;
+			children = (
+				31CD72E5D6ADC1BB6F72F99D /* App */,
+				1846AC6F724674A1BBD7C1A3 /* Packages */,
+				5BBFB2008455BC8A6A9AEF17 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D88070A5E32DD47DF5DB8A73 /* GSRemap */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 56ABB7DCB8E1DBE056984E6A /* Build configuration list for PBXNativeTarget "GSRemap" */;
+			buildPhases = (
+				ED910AD8B97254B19A7EB749 /* Sources */,
+				45DE77C267F6CB8D26947552 /* Resources */,
+				F434CA9C7928C838003ABD94 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GSRemap;
+			packageProductDependencies = (
+				D6E935097B3641557F432E73 /* SCCore */,
+			);
+			productName = GSRemap;
+			productReference = 01299F907BEC5773BB7C4CC7 /* GSRemap.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A1E1A8931021ACD331776685 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					D88070A5E32DD47DF5DB8A73 = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 973F8AAE1197C0E096E5942A /* Build configuration list for PBXProject "GSRemap" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = B1B92BD04EA134116749A9DA;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				70D55424C644966B03CA69DB /* XCLocalSwiftPackageReference "." */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 5BBFB2008455BC8A6A9AEF17 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D88070A5E32DD47DF5DB8A73 /* GSRemap */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		45DE77C267F6CB8D26947552 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68EF2D0683C7CC971069F1BF /* Assets.xcassets in Resources */,
+				6F7323839091EFC5B7BEACB5 /* PrintChar21.ttf in Resources */,
+				DA2E9DDBE3B265B9422D5404 /* Shaston320.ttf in Resources */,
+				B113DFF81D2CAA21D6FF428A /* Shaston640.ttf in Resources */,
+				CAE7FA4E4929C044CD9E02B9 /* ShastonLicense.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ED910AD8B97254B19A7EB749 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C84BD159B0A53EE47DF3259F /* AppModel.swift in Sources */,
+				BF5BCDEDF7445C30DEF4D2AF /* DesktopView.swift in Sources */,
+				036AF6E00948847E2401750B /* ExtraViews.swift in Sources */,
+				5AC316F4DF055409360CA884 /* GSRemapApp.swift in Sources */,
+				0F1BC14042596EA39C20D35A /* GSStyle.swift in Sources */,
+				B306E3D9EF8068F5C5CB76BB /* Menus.swift in Sources */,
+				BB027D7FB2CD1169FE5A452E /* Printing.swift in Sources */,
+				40EF014A1E37290DBB4BA354 /* RemapDialog.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		23C9F02E6B8822BCC1A3DA6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_HARDENED_RUNTIME = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "GS Remap";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.graphics-design";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Based on SuperConvert 4.0 for the Apple IIgs";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.portwally.GSRemap;
+				PRODUCT_NAME = "GS Remap";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		7E9912DA5E6ED5EF84675AE8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		89EEAF542EAC0E056DC44885 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		A270DA848DD48A04C8474F3F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_HARDENED_RUNTIME = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "GS Remap";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.graphics-design";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Based on SuperConvert 4.0 for the Apple IIgs";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.portwally.GSRemap;
+				PRODUCT_NAME = "GS Remap";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		56ABB7DCB8E1DBE056984E6A /* Build configuration list for PBXNativeTarget "GSRemap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23C9F02E6B8822BCC1A3DA6D /* Debug */,
+				A270DA848DD48A04C8474F3F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		973F8AAE1197C0E096E5942A /* Build configuration list for PBXProject "GSRemap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89EEAF542EAC0E056DC44885 /* Debug */,
+				7E9912DA5E6ED5EF84675AE8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		70D55424C644966B03CA69DB /* XCLocalSwiftPackageReference "." */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = .;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D6E935097B3641557F432E73 /* SCCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SCCore;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = A1E1A8931021ACD331776685 /* Project object */;
+}

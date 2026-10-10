@@ -1,0 +1,31 @@
+name: GSRemap
+options:
+  bundleIdPrefix: com.portwally
+  deploymentTarget:
+    macOS: "13.0"
+packages:
+  SuperConvertMac:
+    path: .
+targets:
+  GSRemap:
+    type: application
+    platform: macOS
+    sources: [App]
+    dependencies:
+      - package: SuperConvertMac
+        product: SCCore
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.portwally.GSRemap
+        PRODUCT_NAME: "GS Remap"
+        MARKETING_VERSION: "1.0"
+        CURRENT_PROJECT_VERSION: "1"
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: "GS Remap"
+        INFOPLIST_KEY_NSHumanReadableCopyright: "Based on SuperConvert 4.0 for the Apple IIgs"
+        INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.graphics-design
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        CODE_SIGN_STYLE: Automatic
+        CODE_SIGN_IDENTITY: "-"
+        SWIFT_VERSION: "5.0"
+        ENABLE_HARDENED_RUNTIME: NO
