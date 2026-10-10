@@ -71,3 +71,14 @@ the IIgs), View interlaced on VOC, Oscilloscope Art, Font key chart, Print banne
 
 Not ported: the desktop background INIT save format, Works of Art and New Print Shop files,
 and the Babelfish translators.
+
+## License
+
+The source code is released under the MIT License (see `LICENSE`).
+
+The fonts in `App/Fonts` are not covered by it. They are by Kreative Software and remain
+under the Kreative Software Relay Fonts Free Use License (`App/Fonts/ShastonLicense.txt`),
+which among other things does not allow selling copies of the fonts.
+
+SuperConvert is a trademark of Seven Hills Software Corporation. GS Remap is an independent
+project and is not affiliated with or endorsed by its authors.
