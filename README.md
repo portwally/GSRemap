@@ -4,6 +4,30 @@ A macOS port of SuperConvert 4.0 (Apple IIgs, Seven Hills Software) built by rev
 engineering the original program. The conversion engine is reimplemented in Swift from
 the disassembly and the manual; the window mimics the IIgs desktop.
 
+## Screenshots
+
+<img src="docs/icon-preview.png" width="128" alt="GS Remap icon">
+
+The desktop: Load formats, Save formats and the Image window.
+
+![The GS Remap desktop](docs/screenshots/desktop.png)
+
+The Remap dialog: graphic mode, palette, rendering algorithm and scaling.
+
+![Remap dialog](docs/screenshots/remap.png)
+
+A picture remapped to 640 x 200 dither mode with the default palette.
+
+![640 dither mode result](docs/screenshots/640-dither.png)
+
+The True color menu with its filters.
+
+![True color menu](docs/screenshots/filters-menu.png)
+
+A monochrome image made with error diffusion.
+
+![Monochrome image](docs/screenshots/monochrome.png)
+
 ## Layout
 
 - `Sources/SCCore` — conversion engine (no UI): image types, palette calculator,

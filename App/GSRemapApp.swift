@@ -45,21 +45,57 @@ struct GSRemapApp: App {
 
 @MainActor
 enum Snapshot {
-    static func run(to path: String, demo: String?) {
-        let model = AppModel()
+    /// A sunset over water, drawn from scratch so screenshots show no one else's artwork.
+    static func demoPicture() -> TrueColorImage {
         var image = TrueColorImage(width: 320, height: 200)
+        let horizon = 118
+        func ridge(_ x: Int, _ base: Double, _ a: Double, _ f: Double, _ p: Double) -> Double {
+            base + a * sin(Double(x) * f + p) + a * 0.4 * sin(Double(x) * f * 2.7 + p * 1.9)
+        }
         for y in 0..<200 {
             for x in 0..<320 {
-                image.setPixel(x, y, UInt8(x * 255 / 319), UInt8(y * 255 / 199), UInt8(255 - x * 255 / 319))
+                var r = 0.0, g = 0.0, b = 0.0
+                let dx = Double(x - 205), dy = Double(y - 92)
+                let sun = (dx * dx + dy * dy).squareRoot()
+                if y < horizon {
+                    let t = Double(y) / Double(horizon)
+                    r = 0.10 + 0.90 * t * t
+                    g = 0.08 + 0.50 * t * t * t
+                    b = 0.35 + 0.15 * (1 - t) - 0.25 * t
+                    let glow = max(0, 1 - sun / 110)
+                    r += 0.5 * glow; g += 0.35 * glow; b += 0.1 * glow
+                    if sun < 26 { (r, g, b) = (1.0, 0.95, 0.6) }
+                    if Double(y) > ridge(x, 96, 13, 0.021, 0.6) { (r, g, b) = (0.30, 0.16, 0.34) }
+                    if Double(y) > ridge(x, 108, 9, 0.034, 2.1) { (r, g, b) = (0.14, 0.08, 0.20) }
+                } else {
+                    let t = Double(y - horizon) / Double(200 - horizon)
+                    r = 0.55 - 0.45 * t; g = 0.22 - 0.12 * t; b = 0.32 - 0.08 * t
+                    let wobble = 5 * sin(Double(y) * 0.9) * t
+                    let path = abs(Double(x - 205) + wobble)
+                    if path < 26 - 14 * t && (y / 2) % 2 == 0 { (r, g, b) = (1.0, 0.80, 0.42) }
+                }
+                image.setPixel(x, y, UInt8(min(1, max(0, r)) * 255), UInt8(min(1, max(0, g)) * 255),
+                               UInt8(min(1, max(0, b)) * 255))
             }
         }
+        return image
+    }
+
+    static func run(to path: String, demo: String?) {
+        let model = AppModel()
+        let image = demoPicture()
         model.trueColor = image
-        model.fileName = "Gradient"
+        model.fileName = "Sunset"
         model.screen = Remapper.remap(image, options: RemapOptions(outputWidth: 320, outputHeight: 200))
         model.statistics = image.colourStatistics()
         switch demo {
         case "remap": model.overlay = .remap
         case "menu": model.openMenu = 4
+        case "dither640":
+            model.settings.mode = .mode640Dither
+            model.screen = Remapper.remap(image, options: RemapOptions(
+                mode: .mode640Dither, prototype: .defaultColor(.mode640Dither), outputWidth: 640, outputHeight: 200))
+            model.overlay = .fullScreen
         case "other": model.overlay = .getOther
         case "prefs": model.overlay = .preferences
         case "help":
