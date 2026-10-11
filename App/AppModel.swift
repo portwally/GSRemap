@@ -525,7 +525,8 @@ final class AppModel: ObservableObject {
         let natural = Remapper.naturalSize(of: image, mode: settings.mode)
         let (hn, hd) = scaleSteps[settings.hStep], (vn, vd) = scaleSteps[settings.vStep]
         let w = max(1, natural.width * hn / hd), h = max(1, natural.height * vn / vd)
-        var cw = w, ch = h
+        // A screen image can be at most two screens wide and two screens tall.
+        var cw = min(w, screenWidth * 2), ch = min(h, 400)
         if settings.clipOneScreen {
             cw = min(cw, screenWidth)
             ch = min(ch, 200)

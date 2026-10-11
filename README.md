@@ -12,9 +12,15 @@ The desktop: Load formats, Save formats and the Image window.
 
 ![The GS Remap desktop](docs/screenshots/desktop.png)
 
-The Remap dialog: graphic mode, palette, rendering algorithm and scaling.
+The Remap dialog: graphic mode, palette, rendering algorithm and scaling. The diagram shows
+the resulting picture against a grid of screens; the curve is the 64K size limit.
 
 ![Remap dialog](docs/screenshots/remap.png)
+
+A picture too large for the limit: the thin outline is the size asked for, the thick one is
+what you get.
+
+![Remap dialog with a clipped picture](docs/screenshots/remap-clipped.png)
 
 A picture remapped to 640 x 200 dither mode with the default palette.
 

@@ -90,6 +90,16 @@ enum Snapshot {
         model.statistics = image.colourStatistics()
         switch demo {
         case "remap": model.overlay = .remap
+        case "remapbig":
+            // A picture too large for the limit: shows the clipped outline.
+            model.trueColor = TrueColorImage(width: 500, height: 320)
+            model.settings.hStep = 14
+            model.settings.vStep = 14
+            model.overlay = .remap
+        case "remapsmall":
+            model.settings.hStep = 9
+            model.settings.vStep = 11
+            model.overlay = .remap
         case "menu": model.openMenu = 4
         case "dither640":
             model.settings.mode = .mode640Dither
