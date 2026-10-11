@@ -35,7 +35,8 @@ enum GS {
         case .system: return Font.custom("Geneva", size: 12)
         }
     }
-    static let rowHeight: CGFloat = 16
+    /// List rows are a little taller than the type so the first line clears the frame above it.
+    static let rowHeight: CGFloat = 18
 }
 
 /// A IIgs document window: black title bar when active, hairline frame.
@@ -51,7 +52,7 @@ struct GSWindow<Content: View>: View {
                 .lineLimit(1)
                 .foregroundColor(active ? .white : .black)
                 .frame(maxWidth: .infinity)
-                .frame(height: 18)
+                .frame(height: 20)
                 .background(active ? Color.black : Color.white)
             Rectangle().fill(Color.black).frame(height: 1)
             content
@@ -165,6 +166,8 @@ struct GSList: View {
             scrollBar
         }
         .frame(height: CGFloat(rows) * GS.rowHeight)
+        .padding(.top, 2)
+        .background(Color.white)
         .onChange(of: items.count) { _ in top = 0 }
     }
 

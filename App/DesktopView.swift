@@ -188,6 +188,7 @@ struct DesktopView: View {
                 }
             }
         }
+        .padding(.vertical, 2)
         .fixedSize()
         .background(Color.white)
         .border(Color.black, width: 1)
