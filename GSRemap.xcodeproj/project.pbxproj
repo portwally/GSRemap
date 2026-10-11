@@ -9,36 +9,88 @@
 /* Begin PBXBuildFile section */
 		036AF6E00948847E2401750B /* ExtraViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB3A384864C55216590C4B1 /* ExtraViews.swift */; };
 		0F1BC14042596EA39C20D35A /* GSStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E003F650A30B91B7C647BD /* GSStyle.swift */; };
-		35EEBC6F1B0191C36EA3CFED /* SCCore in Frameworks */ = {isa = PBXBuildFile; productRef = D6E935097B3641557F432E73 /* SCCore */; };
+		13677D1E394A7C868C3D993F /* PackBytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667E93095C553388F8591823 /* PackBytes.swift */; };
+		186B18FDE39F112E7FD1C246 /* PCAndUnix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBDC0B460813AEE15965A22 /* PCAndUnix.swift */; };
+		1D7397410D19F3590DB56906 /* SaveFormats.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15EC8D8109A706814EFF649 /* SaveFormats.swift */; };
+		2B39E5AD42571C0D1B4E5BC1 /* FormatRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFE162FD2D0AF1DD64AC22D /* FormatRegistry.swift */; };
+		30035C6CEAB337774D1F69A3 /* libSCCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9566C4737D0660E5CDCDAED6 /* libSCCore.a */; };
+		30671B2099E0A12E072C3A58 /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B0CFD24860A2270B3453ED /* Filters.swift */; };
+		311AC60BE095D434E6240AFB /* Independent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108C945B9959DDB4119A2ACC /* Independent.swift */; };
+		3BF83B2A885226FA9E53FF02 /* ModernImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B70F58711407CE3C053857 /* ModernImage.swift */; };
+		4093B21A0F72A46C79F12B4D /* MonoImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE0CC79A4AD986D2FB87F6A /* MonoImage.swift */; };
 		40EF014A1E37290DBB4BA354 /* RemapDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14F2FF2AFD03ECE7199B3A8 /* RemapDialog.swift */; };
+		57B894AEDE35C83904094B9A /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2B067412C164AB9BB27B70 /* Color.swift */; };
+		5A17DB1D4AB1D17219DF0EC1 /* AppleII.swift in Sources */ = {isa = PBXBuildFile; fileRef = D138D9E774EB0FCEC763E72A /* AppleII.swift */; };
 		5AC316F4DF055409360CA884 /* GSRemapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AAC00E8B0308802AB05961 /* GSRemapApp.swift */; };
 		68EF2D0683C7CC971069F1BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64C75F8ABE9185D908515776 /* Assets.xcassets */; };
+		6EF4C791B03876E855961A67 /* PatternTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97511CD629ABC79F530FBC85 /* PatternTable.swift */; };
 		6F7323839091EFC5B7BEACB5 /* PrintChar21.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B43EEE10F07960386B61046E /* PrintChar21.ttf */; };
+		72E839C92BD520957EC3700A /* TrueColorImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60BA77B40F3AAAC2CEB94CC /* TrueColorImage.swift */; };
+		88C0D57B081A7C1E039AA09E /* IIgsFormats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890114DD12564BD0D2FCFC92 /* IIgsFormats.swift */; };
+		8C05DA8CE441B712FB254B6B /* TextGlyphs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3822CF082899E32EE93251 /* TextGlyphs.swift */; };
+		93906B3DCA968771AD987E2D /* PalettePrototype.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256907554ACA5CC42C873EC /* PalettePrototype.swift */; };
 		B113DFF81D2CAA21D6FF428A /* Shaston640.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1F5B91530220FAE72661298 /* Shaston640.ttf */; };
 		B306E3D9EF8068F5C5CB76BB /* Menus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F85A81A354450E0566EDF5E /* Menus.swift */; };
+		BAF44C9C33A7E1FE5F27BCFB /* Remapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933348D216E6327B6AF6051A /* Remapper.swift */; };
 		BB027D7FB2CD1169FE5A452E /* Printing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128C51D8244A07919905FAE6 /* Printing.swift */; };
 		BF5BCDEDF7445C30DEF4D2AF /* DesktopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8ABB44A7B72F06DBA1C8B0 /* DesktopView.swift */; };
+		C263DA036CAFE6506FB44A64 /* SHRFormats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A38E96724E78B28DA687FF7 /* SHRFormats.swift */; };
+		C77F6533FB55059E1CA789CD /* ScreenImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165765830839EAC613717167 /* ScreenImage.swift */; };
 		C84BD159B0A53EE47DF3259F /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7256195D06BB349B145F713B /* AppModel.swift */; };
 		CAE7FA4E4929C044CD9E02B9 /* ShastonLicense.txt in Resources */ = {isa = PBXBuildFile; fileRef = BA71C4A8E2390E368D9EFA3D /* ShastonLicense.txt */; };
 		DA2E9DDBE3B265B9422D5404 /* Shaston320.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C4192B68B613825B2BE6BF9F /* Shaston320.ttf */; };
+		DF45B22D7D32B00D9039566E /* LZW.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40E8975D5FB4C4397BE3CCB /* LZW.swift */; };
+		E3EF1F7D89E3A884085CFCD1 /* OtherPlatforms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D95F7B8688279498488C9AC /* OtherPlatforms.swift */; };
+		E68E336FA177BF1C0E44B5DD /* PaletteCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0AE5EB028AD67ECA191292 /* PaletteCalculator.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		625254EFC0643CBB2DCFDB5D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A1E1A8931021ACD331776685 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B4BD9D3E968C51458C823293;
+			remoteInfo = SCCore;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		01299F907BEC5773BB7C4CC7 /* GSRemap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GSRemap.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0BE0CC79A4AD986D2FB87F6A /* MonoImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonoImage.swift; sourceTree = "<group>"; };
 		0C8ABB44A7B72F06DBA1C8B0 /* DesktopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesktopView.swift; sourceTree = "<group>"; };
+		108C945B9959DDB4119A2ACC /* Independent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Independent.swift; sourceTree = "<group>"; };
 		128C51D8244A07919905FAE6 /* Printing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Printing.swift; sourceTree = "<group>"; };
+		165765830839EAC613717167 /* ScreenImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenImage.swift; sourceTree = "<group>"; };
+		1D95F7B8688279498488C9AC /* OtherPlatforms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherPlatforms.swift; sourceTree = "<group>"; };
+		2B0AE5EB028AD67ECA191292 /* PaletteCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteCalculator.swift; sourceTree = "<group>"; };
+		36B70F58711407CE3C053857 /* ModernImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernImage.swift; sourceTree = "<group>"; };
+		3DBDC0B460813AEE15965A22 /* PCAndUnix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCAndUnix.swift; sourceTree = "<group>"; };
+		44B0CFD24860A2270B3453ED /* Filters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filters.swift; sourceTree = "<group>"; };
 		52E003F650A30B91B7C647BD /* GSStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSStyle.swift; sourceTree = "<group>"; };
 		5BB3A384864C55216590C4B1 /* ExtraViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraViews.swift; sourceTree = "<group>"; };
 		5F85A81A354450E0566EDF5E /* Menus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menus.swift; sourceTree = "<group>"; };
 		64C75F8ABE9185D908515776 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		667E93095C553388F8591823 /* PackBytes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackBytes.swift; sourceTree = "<group>"; };
+		6A38E96724E78B28DA687FF7 /* SHRFormats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHRFormats.swift; sourceTree = "<group>"; };
 		7256195D06BB349B145F713B /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		7D2B067412C164AB9BB27B70 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		87AAC00E8B0308802AB05961 /* GSRemapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSRemapApp.swift; sourceTree = "<group>"; };
+		890114DD12564BD0D2FCFC92 /* IIgsFormats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IIgsFormats.swift; sourceTree = "<group>"; };
+		933348D216E6327B6AF6051A /* Remapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Remapper.swift; sourceTree = "<group>"; };
+		9566C4737D0660E5CDCDAED6 /* libSCCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSCCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		97511CD629ABC79F530FBC85 /* PatternTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternTable.swift; sourceTree = "<group>"; };
+		AAFE162FD2D0AF1DD64AC22D /* FormatRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatRegistry.swift; sourceTree = "<group>"; };
+		B256907554ACA5CC42C873EC /* PalettePrototype.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PalettePrototype.swift; sourceTree = "<group>"; };
 		B43EEE10F07960386B61046E /* PrintChar21.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PrintChar21.ttf; sourceTree = "<group>"; };
 		BA71C4A8E2390E368D9EFA3D /* ShastonLicense.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = ShastonLicense.txt; sourceTree = "<group>"; };
 		C14F2FF2AFD03ECE7199B3A8 /* RemapDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemapDialog.swift; sourceTree = "<group>"; };
+		C15EC8D8109A706814EFF649 /* SaveFormats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveFormats.swift; sourceTree = "<group>"; };
+		C40E8975D5FB4C4397BE3CCB /* LZW.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LZW.swift; sourceTree = "<group>"; };
 		C4192B68B613825B2BE6BF9F /* Shaston320.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Shaston320.ttf; sourceTree = "<group>"; };
-		C7A0530602306E6F2E2318D6 /* GS Remap */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "GS Remap"; path = .; sourceTree = SOURCE_ROOT; };
+		D138D9E774EB0FCEC763E72A /* AppleII.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleII.swift; sourceTree = "<group>"; };
+		DA3822CF082899E32EE93251 /* TextGlyphs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextGlyphs.swift; sourceTree = "<group>"; };
 		F1F5B91530220FAE72661298 /* Shaston640.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Shaston640.ttf; sourceTree = "<group>"; };
+		F60BA77B40F3AAAC2CEB94CC /* TrueColorImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrueColorImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,21 +98,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35EEBC6F1B0191C36EA3CFED /* SCCore in Frameworks */,
+				30035C6CEAB337774D1F69A3 /* libSCCore.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1846AC6F724674A1BBD7C1A3 /* Packages */ = {
-			isa = PBXGroup;
-			children = (
-				C7A0530602306E6F2E2318D6 /* GS Remap */,
-			);
-			name = Packages;
-			sourceTree = "<group>";
-		};
 		31CD72E5D6ADC1BB6F72F99D /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -78,12 +122,50 @@
 			path = App;
 			sourceTree = "<group>";
 		};
+		410253E9A3935DB1EA9E8F93 /* Formats */ = {
+			isa = PBXGroup;
+			children = (
+				D138D9E774EB0FCEC763E72A /* AppleII.swift */,
+				890114DD12564BD0D2FCFC92 /* IIgsFormats.swift */,
+				108C945B9959DDB4119A2ACC /* Independent.swift */,
+				C40E8975D5FB4C4397BE3CCB /* LZW.swift */,
+				36B70F58711407CE3C053857 /* ModernImage.swift */,
+				1D95F7B8688279498488C9AC /* OtherPlatforms.swift */,
+				3DBDC0B460813AEE15965A22 /* PCAndUnix.swift */,
+				C15EC8D8109A706814EFF649 /* SaveFormats.swift */,
+				6A38E96724E78B28DA687FF7 /* SHRFormats.swift */,
+				DA3822CF082899E32EE93251 /* TextGlyphs.swift */,
+			);
+			path = Formats;
+			sourceTree = "<group>";
+		};
 		5BBFB2008455BC8A6A9AEF17 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				01299F907BEC5773BB7C4CC7 /* GSRemap.app */,
+				9566C4737D0660E5CDCDAED6 /* libSCCore.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		78689F40FD237FD2EC9C668E /* SCCore */ = {
+			isa = PBXGroup;
+			children = (
+				7D2B067412C164AB9BB27B70 /* Color.swift */,
+				44B0CFD24860A2270B3453ED /* Filters.swift */,
+				AAFE162FD2D0AF1DD64AC22D /* FormatRegistry.swift */,
+				0BE0CC79A4AD986D2FB87F6A /* MonoImage.swift */,
+				667E93095C553388F8591823 /* PackBytes.swift */,
+				2B0AE5EB028AD67ECA191292 /* PaletteCalculator.swift */,
+				B256907554ACA5CC42C873EC /* PalettePrototype.swift */,
+				97511CD629ABC79F530FBC85 /* PatternTable.swift */,
+				933348D216E6327B6AF6051A /* Remapper.swift */,
+				165765830839EAC613717167 /* ScreenImage.swift */,
+				F60BA77B40F3AAAC2CEB94CC /* TrueColorImage.swift */,
+				410253E9A3935DB1EA9E8F93 /* Formats */,
+			);
+			name = SCCore;
+			path = Sources/SCCore;
 			sourceTree = "<group>";
 		};
 		8B620FA2754750CCCF52ABE0 /* Fonts */ = {
@@ -101,7 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				31CD72E5D6ADC1BB6F72F99D /* App */,
-				1846AC6F724674A1BBD7C1A3 /* Packages */,
+				78689F40FD237FD2EC9C668E /* SCCore */,
 				5BBFB2008455BC8A6A9AEF17 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -109,6 +191,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B4BD9D3E968C51458C823293 /* SCCore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5704EF75171E547E1CA07A1D /* Build configuration list for PBXNativeTarget "SCCore" */;
+			buildPhases = (
+				72161BD5FD7072C6F4431175 /* Sources */,
+				F16BA6C30B70B69F87C6458A /* Copy Swift Objective-C Interface Header */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SCCore;
+			packageProductDependencies = (
+			);
+			productName = SCCore;
+			productReference = 9566C4737D0660E5CDCDAED6 /* libSCCore.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		D88070A5E32DD47DF5DB8A73 /* GSRemap */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 56ABB7DCB8E1DBE056984E6A /* Build configuration list for PBXNativeTarget "GSRemap" */;
@@ -120,10 +220,10 @@
 			buildRules = (
 			);
 			dependencies = (
+				6CBA50CC326368271204885F /* PBXTargetDependency */,
 			);
 			name = GSRemap;
 			packageProductDependencies = (
-				D6E935097B3641557F432E73 /* SCCore */,
 			);
 			productName = GSRemap;
 			productReference = 01299F907BEC5773BB7C4CC7 /* GSRemap.app */;
@@ -152,15 +252,13 @@
 			);
 			mainGroup = B1B92BD04EA134116749A9DA;
 			minimizedProjectReferenceProxies = 1;
-			packageReferences = (
-				70D55424C644966B03CA69DB /* XCLocalSwiftPackageReference "." */,
-			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 5BBFB2008455BC8A6A9AEF17 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				D88070A5E32DD47DF5DB8A73 /* GSRemap */,
+				B4BD9D3E968C51458C823293 /* SCCore */,
 			);
 		};
 /* End PBXProject section */
@@ -180,7 +278,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		F16BA6C30B70B69F87C6458A /* Copy Swift Objective-C Interface Header */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(DERIVED_SOURCES_DIR)/$(SWIFT_OBJC_INTERFACE_HEADER_NAME)",
+			);
+			name = "Copy Swift Objective-C Interface Header";
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/include/$(PRODUCT_MODULE_NAME)/$(SWIFT_OBJC_INTERFACE_HEADER_NAME)",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "ditto \"${SCRIPT_INPUT_FILE_0}\" \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		72161BD5FD7072C6F4431175 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A17DB1D4AB1D17219DF0EC1 /* AppleII.swift in Sources */,
+				57B894AEDE35C83904094B9A /* Color.swift in Sources */,
+				30671B2099E0A12E072C3A58 /* Filters.swift in Sources */,
+				2B39E5AD42571C0D1B4E5BC1 /* FormatRegistry.swift in Sources */,
+				88C0D57B081A7C1E039AA09E /* IIgsFormats.swift in Sources */,
+				311AC60BE095D434E6240AFB /* Independent.swift in Sources */,
+				DF45B22D7D32B00D9039566E /* LZW.swift in Sources */,
+				3BF83B2A885226FA9E53FF02 /* ModernImage.swift in Sources */,
+				4093B21A0F72A46C79F12B4D /* MonoImage.swift in Sources */,
+				E3EF1F7D89E3A884085CFCD1 /* OtherPlatforms.swift in Sources */,
+				186B18FDE39F112E7FD1C246 /* PCAndUnix.swift in Sources */,
+				13677D1E394A7C868C3D993F /* PackBytes.swift in Sources */,
+				E68E336FA177BF1C0E44B5DD /* PaletteCalculator.swift in Sources */,
+				93906B3DCA968771AD987E2D /* PalettePrototype.swift in Sources */,
+				6EF4C791B03876E855961A67 /* PatternTable.swift in Sources */,
+				BAF44C9C33A7E1FE5F27BCFB /* Remapper.swift in Sources */,
+				C263DA036CAFE6506FB44A64 /* SHRFormats.swift in Sources */,
+				1D7397410D19F3590DB56906 /* SaveFormats.swift in Sources */,
+				C77F6533FB55059E1CA789CD /* ScreenImage.swift in Sources */,
+				8C05DA8CE441B712FB254B6B /* TextGlyphs.swift in Sources */,
+				72E839C92BD520957EC3700A /* TrueColorImage.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ED910AD8B97254B19A7EB749 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -197,6 +342,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6CBA50CC326368271204885F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B4BD9D3E968C51458C823293 /* SCCore */;
+			targetProxy = 625254EFC0643CBB2DCFDB5D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		23C9F02E6B8822BCC1A3DA6D /* Debug */ = {
@@ -217,6 +370,10 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.portwally.GSRemap;
 				PRODUCT_NAME = "GS Remap";
 				SDKROOT = macosx;
@@ -361,12 +518,48 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.portwally.GSRemap;
 				PRODUCT_NAME = "GS Remap";
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
+		};
+		B346CE9D1ABB4730F056FBF8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.portwally.SCCore;
+				PRODUCT_NAME = SCCore;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		E077D3586CE784471F1BF0A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.portwally.SCCore;
+				PRODUCT_NAME = SCCore;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
@@ -376,6 +569,15 @@
 			buildConfigurations = (
 				23C9F02E6B8822BCC1A3DA6D /* Debug */,
 				A270DA848DD48A04C8474F3F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		5704EF75171E547E1CA07A1D /* Build configuration list for PBXNativeTarget "SCCore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E077D3586CE784471F1BF0A1 /* Debug */,
+				B346CE9D1ABB4730F056FBF8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
@@ -390,20 +592,6 @@
 			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCLocalSwiftPackageReference section */
-		70D55424C644966B03CA69DB /* XCLocalSwiftPackageReference "." */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = .;
-		};
-/* End XCLocalSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		D6E935097B3641557F432E73 /* SCCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = SCCore;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A1E1A8931021ACD331776685 /* Project object */;
 }

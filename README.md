@@ -39,6 +39,11 @@ A monochrome image made with error diffusion.
 
 ## Build
 
+To build the app in Xcode, open `GSRemap.xcodeproj` (not the folder or `Package.swift`,
+which only give you the engine and the command-line tool) and run the GSRemap scheme.
+
+From the command line:
+
 ```bash
 swift test
 xcodegen generate

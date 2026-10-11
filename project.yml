@@ -3,17 +3,24 @@ options:
   bundleIdPrefix: com.portwally
   deploymentTarget:
     macOS: "13.0"
-packages:
-  SuperConvertMac:
-    path: .
 targets:
+  # The conversion engine, built straight from Sources/SCCore. (Package.swift describes the
+  # same sources for `swift build` and `swift test`.)
+  SCCore:
+    type: library.static
+    platform: macOS
+    sources: [Sources/SCCore]
+    settings:
+      base:
+        PRODUCT_NAME: SCCore
+        SWIFT_VERSION: "5.0"
+        SKIP_INSTALL: YES
   GSRemap:
     type: application
     platform: macOS
     sources: [App]
     dependencies:
-      - package: SuperConvertMac
-        product: SCCore
+      - target: SCCore
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.portwally.GSRemap
