@@ -26,9 +26,9 @@ struct HelpDialog: View {
                 Several files may be chosen at once: the first one loads, and Load next loads \
                 the next one waiting.
 
-                Formats marked with * give a true color image and open the Remap dialog; the \
-                others give a screen image directly. Info on format describes the format chosen \
-                in the list.
+                Some formats give a true color image and open the Remap dialog; the others give \
+                a screen image directly. Info on format describes the format chosen in the list \
+                and says which it is.
                 """),
             ("Saving pictures", """
                 Choose a format in the Save formats window and click Save (or File > Save \

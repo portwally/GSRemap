@@ -78,7 +78,7 @@ struct DesktopView: View {
                     }
                     .padding(4)
                     Rectangle().fill(Color.black).frame(height: 1)
-                    GSList(items: model.formats.map(\.listName), selection: $model.formatIndex, rows: 7) {
+                    GSList(items: model.formats.map(\.name), selection: $model.formatIndex, rows: 7) {
                         model.load()
                     }
                 }
