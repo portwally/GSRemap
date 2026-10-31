@@ -58,6 +58,12 @@ if args.first == "list" {
     print(String(decoding: data, as: UTF8.self))
     exit(0)
 }
+if args.first == "listsave" {
+    let formats = FormatRegistry.saveFormats.map { ["id": $0.id, "name": $0.name, "info": FormatInfo.save[$0.id] ?? ""] }
+    let data = try JSONSerialization.data(withJSONObject: formats, options: [.prettyPrinted, .sortedKeys])
+    print(String(decoding: data, as: UTF8.self))
+    exit(0)
+}
 guard args.count >= 3 else { fail("usage: sc4 view|remap <in> <out> [options]") }
 let command = args.removeFirst(), input = args.removeFirst(), output = args.removeFirst()
 
