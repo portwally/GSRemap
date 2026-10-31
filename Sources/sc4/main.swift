@@ -1,3 +1,4 @@
+import CoreGraphics
 import Foundation
 import SCCore
 import UniformTypeIdentifiers
@@ -62,6 +63,36 @@ if args.first == "listsave" {
     let formats = FormatRegistry.saveFormats.map { ["id": $0.id, "name": $0.name, "info": FormatInfo.save[$0.id] ?? ""] }
     let data = try JSONSerialization.data(withJSONObject: formats, options: [.prettyPrinted, .sortedKeys])
     print(String(decoding: data, as: UTF8.self))
+    exit(0)
+}
+if args.first == "lab", args.count == 4 {
+    // sc4 lab <picture> <folder> <name>: the conversions shown on the homepage's "Try a conversion".
+    let image = try ModernImage.load(URL(fileURLWithPath: args[1]))
+    let folder = args[2], name = args[3]
+    func save(_ cg: CGImage?, _ suffix: String) throws {
+        guard let cg else { fail("Can't render") }
+        try ModernImage.save(cg, to: URL(fileURLWithPath: "\(folder)/\(name)\(suffix).png"), type: .png)
+    }
+    func remap(_ picture: TrueColorImage, _ mode: GraphicMode, _ prototype: PalettePrototype? = nil,
+               _ algorithm: RenderAlgorithm = .patternDither) -> ScreenImage {
+        let natural = Remapper.naturalSize(of: picture, mode: mode)
+        return Remapper.remap(picture, options: RemapOptions(mode: mode, prototype: prototype ?? .calculated(mode), algorithm: algorithm,
+                                                             outputWidth: natural.width, outputHeight: natural.height))
+    }
+    try save(ModernImage.cgImage(image), "")
+    try save(ModernImage.cgImage(remap(image, .mode320)), "-320")
+    try save(ModernImage.cgImage(remap(image, .mode320, nil, .errorDiffusion)), "-320-diffusion")
+    try save(ModernImage.cgImage(remap(image, .mode320, .grayscale(.mode320))), "-greys")
+    try save(ModernImage.cgImage(remap(image, .mode640)), "-640")
+    try save(ModernImage.cgImage(remap(image, .mode640Dither)), "-640-dither")
+    try save(ModernImage.cgImage(remap(image, .multipalette)), "-multipalette")
+    try save(ModernImage.cgImage(remap(Filters.emboss(image), .mode320)), "-emboss")
+    try save(ModernImage.cgImage(remap(Filters.findEdges(image, factor: 50), .mode320)), "-find-edges")
+    try save(ModernImage.cgImage(remap(Filters.solarize(image), .mode320)), "-solarize")
+    let mono = MonoConversion.monochrome(from: image, xScale: 1, yScale: 1, method: .halftone)
+    try save(ModernImage.cgImage(width: mono.width, height: mono.height, rgba: mono.rgba()), "-halftone")
+    let diffusion = MonoConversion.monochrome(from: image, xScale: 1, yScale: 1, method: .errorDiffusion)
+    try save(ModernImage.cgImage(width: diffusion.width, height: diffusion.height, rgba: diffusion.rgba()), "-mono-diffusion")
     exit(0)
 }
 guard args.count >= 3 else { fail("usage: sc4 view|remap <in> <out> [options]") }
