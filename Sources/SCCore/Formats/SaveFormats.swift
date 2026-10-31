@@ -15,6 +15,10 @@ public struct SaveOptions {
     public var hexBefore = " dc h'"
     public var hexBetween = " "
     public var hexAfter = "'"
+    /// Apple II saves: dithering (0 error diffusion, 1 pattern, 2 none), and whether the
+    /// picture keeps its proportions (centred on black) instead of filling the screen.
+    public var appleIIDither = 0
+    public var appleIIKeepProportions = false
 
     public init() {}
 }

@@ -27,7 +27,7 @@ public struct LoadCategory: Identifiable {
 }
 
 public enum SaveOptionsKind {
-    case none, icon, iconResource, hex
+    case none, icon, iconResource, hex, appleII
 }
 
 /// One line in the Save formats window.
@@ -74,14 +74,23 @@ public enum FormatRegistry {
 
     public static let loadCategories: [LoadCategory] = [
         LoadCategory(id: "a2", name: "Apple II family", formats: [
-            screen("hgrbw", "HiRes black & white") { try AppleIIFormats.loadHiResMono($0) },
-            screen("hgr", "HiRes color") { try AppleIIFormats.loadHiRes($0) },
-            screen("dhrbw", "DoubleHiRes black & white") { try AppleIIFormats.loadDoubleHiRes($0, colour: false) },
-            screen("dhr", "DoubleHiRes color") { try AppleIIFormats.loadDoubleHiRes($0, colour: true) },
+            screen("hgrbw", "HiRes black & white") { try AppleIIFormats.loadHiRes(packed: $0, mono: true) },
+            screen("hgr", "HiRes color") { try AppleIIFormats.loadHiRes(packed: $0, mono: false) },
+            LoadFormat(id: "dhrbw", name: "DoubleHiRes black & white", trueColor: false) {
+                .screen(try AppleIIFormats.loadDoubleHiRes(url: $0, colour: false))
+            },
+            LoadFormat(id: "dhr", name: "DoubleHiRes color", trueColor: false) {
+                .screen(try AppleIIFormats.loadDoubleHiRes(url: $0, colour: true))
+            },
             screen("psbw", "Print Shop B & W graphic") { try IIgsFormats.loadPrintShop($0) },
             trueColor("tscan", "ThunderScan raw scan file") { try AppleIIFormats.loadThunderScan($0) },
+            LoadFormat(id: "woa", name: "Works of Art (Springboard Publ.)", trueColor: false) {
+                try WorksOfArt.load(try bytes($0))
+            },
             screen("tdm40", "TDM 40-column text screen capture") { try AppleIIFormats.loadTextScreen($0, columns: 40) },
             screen("tdm80", "TDM 80-column text screen capture") { try AppleIIFormats.loadTextScreen($0, columns: 80) },
+            screen("lores", "LoRes (40 x 48)") { try AppleIIFormats.loadLoRes($0, double: false) },
+            screen("dlores", "Double LoRes (80 x 48)") { try AppleIIFormats.loadLoRes($0, double: true) },
         ]),
         LoadCategory(id: "gs", name: "Apple IIgs specific", formats: [
             screen("shr", "SuperHiRes ($C0/PNT, $C1/PIC)") { try SHRFormats.loadAny($0) },
@@ -116,6 +125,10 @@ public enum FormatRegistry {
             screen("doodle", "Doodle (DDxxx)") { try C64Formats.loadDoodle($0) },
             screen("koala", "Koala Illustrator") { try C64Formats.loadKoala($0) },
             screen("c64ps", "Print Shop screen") { try C64Formats.loadPrintShop($0) },
+            screen("artst", "Art Studio, Interpaint hires") { try C64Formats.loadArtStudio($0) },
+            screen("aas", "Advanced Art Studio (OCP)") { try C64Formats.loadAdvancedArtStudio($0) },
+            screen("fli", "FLI Graph (.FLI)") { try C64Formats.loadFLI($0) },
+            screen("amica", "Amica Paint (.AMI)") { try C64Formats.loadAmica($0) },
         ]),
         LoadCategory(id: "mac", name: "Macintosh", formats: [
             screen("mpnt640", "MacPaint => 640 mode grayscale") { try MacFormats.loadMacPaint640($0) },
@@ -129,6 +142,7 @@ public enum FormatRegistry {
                 return .monochrome(mono)
             },
             screenOrMono("macsm", "ScreenMaker (old startup screen)") { try MacFormats.loadScreenMaker($0) },
+            trueColor("pict", "QuickDraw picture (PICT)") { try PICTFormat.load($0) },
         ]),
         LoadCategory(id: "ibm", name: "IBM PC & compatibles", formats: [
             modern("bmp", "Windows or OS/2 bitmap (.BMP)"),
@@ -142,6 +156,25 @@ public enum FormatRegistry {
             trueColor("sgi", "SGI Iris") { try UnixFormats.loadSGI($0) },
             trueColor("pnm", "Portable Pixelmap") { try UnixFormats.loadPNM($0) },
         ]),
+        LoadCategory(id: "cpc", name: "Amstrad CPC", formats: [
+            LoadFormat(id: "cpc0", name: "Mode 0 screen (.SCR)", trueColor: false) { .screen(try CPCFormats.load($0, mode: 0)) },
+            LoadFormat(id: "cpc1", name: "Mode 1 screen (.SCR)", trueColor: false) { .screen(try CPCFormats.load($0, mode: 1)) },
+            LoadFormat(id: "cpc2", name: "Mode 2 screen (.SCR)", trueColor: false) { .screen(try CPCFormats.load($0, mode: 2)) },
+        ]),
+        LoadCategory(id: "a8", name: "Atari 8-bit", formats: [
+            screen("mic", "MicroPainter (.MIC)") { try Atari8Formats.loadMicroPainter($0) },
+            screen("gr8", "Graphics 8 screen (.GR8)") { try Atari8Formats.loadGraphics8($0) },
+            screen("gr9", "Graphics 9 screen (.GR9)") { try Atari8Formats.loadGraphics9($0) },
+        ]),
+        LoadCategory(id: "msx", name: "MSX", formats: [
+            screen("msx2", "Screen 2 (.SC2)") { try MSXFormats.loadScreen2($0) },
+            trueColor("msx5", "Screen 5 (.SC5, .GE5)") { try MSXFormats.loadScreen5($0) },
+            trueColor("msx7", "Screen 7 (.SC7)") { try MSXFormats.loadScreen7($0) },
+            trueColor("msx8", "Screen 8 (.SC8)") { try MSXFormats.loadScreen8($0) },
+        ]),
+        LoadCategory(id: "zx", name: "ZX Spectrum", formats: [
+            screen("zx", "Screen (.SCR)") { try ZXFormats.loadScreen($0) },
+        ]),
         LoadCategory(id: "ind", name: "Computer-independent", formats: [
             modern("jpeg", "JPEG (JFIF)"),
             modern("gif", "GIF (Graphics Interchange Format)"),
@@ -152,6 +185,7 @@ public enum FormatRegistry {
             },
             trueColor("qrt", "QRT raw image file") { try IndependentFormats.loadQRT($0) },
             modern("tiff", "TIFF (Tagged Image File Format)"),
+            trueColor("tga", "Truevision Targa (.TGA)") { try TGAFormat.load($0) },
             modern("any", "Anything macOS can open"),
         ]),
     ]
@@ -205,5 +239,27 @@ public enum FormatRegistry {
         modernSave("gif", "GIF (Graphics Interchange Format)", "gif", .gif),
         modernSave("png", "PNG (Portable Network Graphics)", "png", .png),
         modernSave("tiff", "TIFF (Tagged Image File Format)", "tiff", .tiff),
+        modernSave("bmp", "BMP (Windows bitmap)", "bmp", .bmp),
+        appleII("hgr", "Apple II HiRes color", .hgr, packed: false),
+        appleII("hgrbw", "Apple II HiRes black & white", .hgrbw, packed: false),
+        appleII("dhr", "Apple II Double HiRes color", .dhr, packed: false),
+        appleII("dhrbw", "Apple II Double HiRes b & w", .dhrbw, packed: false),
+        appleII("lores", "Apple II LoRes", .lores, packed: false),
+        appleII("dlores", "Apple II Double LoRes", .dlores, packed: false),
+        appleII("hgrp", "Apple II HiRes color, packed", .hgr, packed: true),
+        appleII("hgrbwp", "Apple II HiRes b & w, packed", .hgrbw, packed: true),
+        appleII("dhrp", "Apple II Double HiRes color, packed", .dhr, packed: true),
+        appleII("dhrbwp", "Apple II Double HiRes b & w, packed", .dhrbw, packed: true),
     ]
+
+    /// An Apple II screen: a binary file ($06, aux type $2000; LoRes $0400) or packed with
+    /// PackBytes (\$08, aux type $4000 HiRes, $4001 Double HiRes).
+    static func appleII(_ id: String, _ name: String, _ kind: AppleIISave.Kind, packed: Bool) -> SaveFormat {
+        let lo = kind == .lores || kind == .dlores
+        let suffix = packed ? (kind == .hgr || kind == .hgrbw ? "#084000" : "#084001") : lo ? "#060400" : "#062000"
+        return SaveFormat(id: id, name: name, suffix: suffix, options: .appleII) { screen, url, options in
+            let data = AppleIISave.encode(screen, kind, dither: options.appleIIDither, fit: options.appleIIKeepProportions)
+            try Data(packed ? PackBytes.pack(data) : data).write(to: url)
+        }
+    }
 }

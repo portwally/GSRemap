@@ -215,3 +215,16 @@ public enum MonoConversion {
         return out
     }
 }
+
+extension MonoImage {
+    /// The part between `left`/`top` (inclusive) and `right`/`bottom` (exclusive), clamped to the image.
+    public func cropped(left: Int, top: Int, right: Int, bottom: Int) -> MonoImage {
+        let l = max(0, min(left, width)), r = max(l, min(right, width))
+        let t = max(0, min(top, height)), b = max(t, min(bottom, height))
+        var out = MonoImage(width: r - l, height: b - t)
+        for y in t..<b {
+            for x in l..<r { out.pixels[(y - t) * (r - l) + (x - l)] = pixels[y * width + x] }
+        }
+        return out
+    }
+}

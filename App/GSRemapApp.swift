@@ -83,11 +83,20 @@ enum Snapshot {
 
     static func run(to path: String, demo: String?) {
         let model = AppModel()
-        let image = demoPicture()
+        // GSREMAP_PHOTO=<Apple IIgs picture> GSREMAP_NAME=<title> use a real picture instead of the drawn sunset.
+        var image = demoPicture()
+        var name = "Sunset"
+        let env = ProcessInfo.processInfo.environment
+        if let photo = env["GSREMAP_PHOTO"], let data = FileManager.default.contents(atPath: photo),
+           let loaded = try? SHRFormats.loadAny([UInt8](data)) {
+            image = loaded.toTrueColor()
+            name = env["GSREMAP_NAME"] ?? name
+        }
         model.trueColor = image
-        model.fileName = "Sunset"
+        model.fileName = name
         model.screen = Remapper.remap(image, options: RemapOptions(outputWidth: 320, outputHeight: 200))
         model.statistics = image.colourStatistics()
+        model.zoom = -1   // 1/2 shrink: more of the picture fits the window
         switch demo {
         case "remap": model.overlay = .remap
         case "remapbig":
@@ -135,6 +144,7 @@ enum Snapshot {
         case "monoview":
             model.mono = MonoConversion.monochrome(from: image, xScale: 2, yScale: 2, method: .errorDiffusion)
             model.showMono = true
+            model.zoom = -2
         case "emboss":
             model.trueColor = Filters.emboss(image)
             model.showTrueColor = true
@@ -158,6 +168,20 @@ enum Snapshot {
             for i in 0..<8 { memory[0x80 * 3 + 0x28 + i] = UInt8(0x01 + i) }   // inverse "ABCDEFGH" on row 11
             model.screen = try? AppleIIFormats.loadTextScreen(memory, columns: 40)
             model.overlay = .fullScreen
+        case "imgwin":
+            model.activeWindow = 2
+            model.selections[1] = ImageSelection(top: 40, left: 120, bottom: 120, right: 360)
+            model.zoom = 0
+        case "imgpeek":
+            model.activeWindow = 2
+            model.tool = 2
+            model.peekPoint = ImagePoint(x: 130, y: 60)
+        case "imgpopup":
+            model.activeWindow = 2
+            model.popup = .type
+        case "imgzoompop":
+            model.activeWindow = 2
+            model.popup = .zoom
         case "shaston320": model.appFont = .shaston320
         case "system": model.appFont = .system
         default: break

@@ -67,9 +67,9 @@ struct DesktopView: View {
                         HStack {
                             Button("Info on format") {
                                 let f = model.formats[min(model.formatIndex, model.formats.count - 1)]
-                                model.overlay = .info(f.name, f.trueColor
+                                model.overlay = .info(f.name, FormatInfo.load[f.id] ?? (f.trueColor
                                     ? "Loads as a true color image; the Remap dialog then turns it into a screen image."
-                                    : "Loads directly as a screen image.")
+                                    : "Loads directly as a screen image."))
                             }
                             .buttonStyle(GSButtonStyle())
                             Spacer()
@@ -89,9 +89,14 @@ struct DesktopView: View {
                 GSWindow(title: "Save formats", active: model.activeWindow == 1) {
                     VStack(alignment: .leading, spacing: 0) {
                         HStack {
+                            Button("Info on format") {
+                                let f = FormatRegistry.saveFormats[min(model.saveIndex, FormatRegistry.saveFormats.count - 1)]
+                                model.overlay = .info(f.name, FormatInfo.save[f.id] ?? "")
+                            }
+                            .buttonStyle(GSButtonStyle())
+                            Spacer()
                             Button("Save") { model.save() }.buttonStyle(GSButtonStyle())
                                 .disabled(model.screen == nil)
-                            Spacer()
                         }
                         .padding(4)
                         Rectangle().fill(Color.black).frame(height: 1)
@@ -102,39 +107,16 @@ struct DesktopView: View {
                 }
                 GSWindow(title: model.imageTitle, active: model.activeWindow == 2) {
                     VStack(spacing: 0) {
-                        HStack(spacing: 10) {
-                            GSRadio(title: "Screen", selected: !model.showTrueColor && !model.showMono,
-                                    enabled: model.screen != nil) {
-                                model.showTrueColor = false
-                                model.showMono = false
-                            }
-                            GSRadio(title: "True color", selected: model.showTrueColor && !model.showMono,
-                                    enabled: model.trueColor != nil) {
-                                model.showTrueColor = true
-                                model.showMono = false
-                            }
-                            GSRadio(title: "Mono", selected: model.showMono, enabled: model.mono != nil) {
-                                model.showMono = true
-                            }
-                            Spacer()
-                        }
-                        .padding(.horizontal, 4)
-                        .frame(height: 18)
+                        ImageInfoBar(model: model)
                         Rectangle().fill(Color.black).frame(height: 1)
-                        ZStack {
-                            Color.white
-                            if let image = model.currentCGImage() {
-                                Image(decorative: image, scale: 1)
-                                    .interpolation(.none)
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                            }
-                        }
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        ImageContent(model: model)
                     }
+                    .overlay(alignment: .topLeading) { ImagePopupLayer(model: model) }
                 }
+                .zIndex(1)
             }
             .frame(width: 322)
+            .zIndex(1)
         }
         .padding(.horizontal, 10)
         .padding(.vertical, 6)
@@ -219,7 +201,8 @@ struct DesktopView: View {
                         GSDialog { Text(text).font(GS.font).foregroundColor(.black).frame(width: 200) }.fixedSize()
                     case .about:
                         message("GS Remap", """
-                            Based on SuperConvert 4.0 for the Apple IIgs.
+                            2026 Walter Tengler,
+                            a Mac port of SuperConvert 4.0 for the Apple IIgs.
                             Original program by Jason Harper, updates by Ian Brumby.
                             Copyright 1992-1997 Seven Hills Software Corporation.
                             Shaston and Print Char 21 fonts by Kreative Software.
@@ -363,6 +346,18 @@ struct DesktopView: View {
                     Text(model.saveOptions.hexBefore + ["01", "23", "45", "67"].joined(separator: model.saveOptions.hexBetween)
                          + model.saveOptions.hexAfter)
                         .font(GS.font).foregroundColor(.black).lineLimit(1)
+                case .appleII:
+                    Text("Dithering:").font(GS.font).foregroundColor(.black)
+                    GSRadio(title: "Error diffusion", selected: model.saveOptions.appleIIDither == 0) { model.saveOptions.appleIIDither = 0 }
+                    GSRadio(title: "Pattern", selected: model.saveOptions.appleIIDither == 1) { model.saveOptions.appleIIDither = 1 }
+                    GSRadio(title: "None", selected: model.saveOptions.appleIIDither == 2) { model.saveOptions.appleIIDither = 2 }
+                    Text("Size:").font(GS.font).foregroundColor(.black)
+                    GSRadio(title: "Fill the whole screen", selected: !model.saveOptions.appleIIKeepProportions) {
+                        model.saveOptions.appleIIKeepProportions = false
+                    }
+                    GSRadio(title: "Keep the picture's proportions", selected: model.saveOptions.appleIIKeepProportions) {
+                        model.saveOptions.appleIIKeepProportions = true
+                    }
                 case .none:
                     EmptyView()
                 }
@@ -433,7 +428,7 @@ struct DesktopView: View {
                         .keyboardShortcut(.defaultAction)
                 }
             }
-            .frame(width: 340, alignment: .leading)
+            .frame(width: text.count > 200 ? 500 : 340, alignment: .leading)   // (long: Info on format)
         }
         .fixedSize()
     }

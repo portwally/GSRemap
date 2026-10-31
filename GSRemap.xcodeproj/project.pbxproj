@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		036AF6E00948847E2401750B /* ExtraViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB3A384864C55216590C4B1 /* ExtraViews.swift */; };
+		08BDEF1B9FF3C41B6AFCD875 /* FormatInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D6BB57E21421207E1C9305 /* FormatInfo.swift */; };
 		0F1BC14042596EA39C20D35A /* GSStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E003F650A30B91B7C647BD /* GSStyle.swift */; };
 		13677D1E394A7C868C3D993F /* PackBytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667E93095C553388F8591823 /* PackBytes.swift */; };
 		186B18FDE39F112E7FD1C246 /* PCAndUnix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBDC0B460813AEE15965A22 /* PCAndUnix.swift */; };
@@ -21,6 +22,7 @@
 		40EF014A1E37290DBB4BA354 /* RemapDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14F2FF2AFD03ECE7199B3A8 /* RemapDialog.swift */; };
 		57B894AEDE35C83904094B9A /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2B067412C164AB9BB27B70 /* Color.swift */; };
 		5A17DB1D4AB1D17219DF0EC1 /* AppleII.swift in Sources */ = {isa = PBXBuildFile; fileRef = D138D9E774EB0FCEC763E72A /* AppleII.swift */; };
+		5ABCAA2ADDDC8FCAB80DB70F /* TGAandPICT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982C861DACC37D559F84B0BA /* TGAandPICT.swift */; };
 		5AC316F4DF055409360CA884 /* GSRemapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AAC00E8B0308802AB05961 /* GSRemapApp.swift */; };
 		68EF2D0683C7CC971069F1BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64C75F8ABE9185D908515776 /* Assets.xcassets */; };
 		6EF4C791B03876E855961A67 /* PatternTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97511CD629ABC79F530FBC85 /* PatternTable.swift */; };
@@ -28,6 +30,7 @@
 		72E839C92BD520957EC3700A /* TrueColorImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60BA77B40F3AAAC2CEB94CC /* TrueColorImage.swift */; };
 		88C0D57B081A7C1E039AA09E /* IIgsFormats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890114DD12564BD0D2FCFC92 /* IIgsFormats.swift */; };
 		8C05DA8CE441B712FB254B6B /* TextGlyphs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3822CF082899E32EE93251 /* TextGlyphs.swift */; };
+		8E36DC70EA7D1ABB6B5E56E8 /* IIgsIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8311B0C8C913A0B95C399851 /* IIgsIcons.swift */; };
 		93906B3DCA968771AD987E2D /* PalettePrototype.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256907554ACA5CC42C873EC /* PalettePrototype.swift */; };
 		B113DFF81D2CAA21D6FF428A /* Shaston640.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1F5B91530220FAE72661298 /* Shaston640.ttf */; };
 		B306E3D9EF8068F5C5CB76BB /* Menus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F85A81A354450E0566EDF5E /* Menus.swift */; };
@@ -35,12 +38,16 @@
 		BB027D7FB2CD1169FE5A452E /* Printing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128C51D8244A07919905FAE6 /* Printing.swift */; };
 		BF5BCDEDF7445C30DEF4D2AF /* DesktopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8ABB44A7B72F06DBA1C8B0 /* DesktopView.swift */; };
 		C263DA036CAFE6506FB44A64 /* SHRFormats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A38E96724E78B28DA687FF7 /* SHRFormats.swift */; };
+		C51C0FF887C3E8551D68CA7D /* AppleIISave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0A6937D9B2FBD3586F198F /* AppleIISave.swift */; };
 		C77F6533FB55059E1CA789CD /* ScreenImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165765830839EAC613717167 /* ScreenImage.swift */; };
 		C84BD159B0A53EE47DF3259F /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7256195D06BB349B145F713B /* AppModel.swift */; };
 		CAE7FA4E4929C044CD9E02B9 /* ShastonLicense.txt in Resources */ = {isa = PBXBuildFile; fileRef = BA71C4A8E2390E368D9EFA3D /* ShastonLicense.txt */; };
+		D3F4128B8CBC224FD713AAC4 /* AppleIIMore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71AB64BED27B6A2CECE236A /* AppleIIMore.swift */; };
 		DA2E9DDBE3B265B9422D5404 /* Shaston320.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C4192B68B613825B2BE6BF9F /* Shaston320.ttf */; };
+		DB97928E8B129FD6F81976A5 /* ImageWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37432F5F79B6EB1E00D376F6 /* ImageWindow.swift */; };
 		DF45B22D7D32B00D9039566E /* LZW.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40E8975D5FB4C4397BE3CCB /* LZW.swift */; };
 		E3EF1F7D89E3A884085CFCD1 /* OtherPlatforms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D95F7B8688279498488C9AC /* OtherPlatforms.swift */; };
+		E65F33047954CA8CD22BE686 /* MorePlatforms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DA0E5EA58D4AA87A0EC3DE /* MorePlatforms.swift */; };
 		E68E336FA177BF1C0E44B5DD /* PaletteCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0AE5EB028AD67ECA191292 /* PaletteCalculator.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,24 +71,31 @@
 		1D95F7B8688279498488C9AC /* OtherPlatforms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherPlatforms.swift; sourceTree = "<group>"; };
 		2B0AE5EB028AD67ECA191292 /* PaletteCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteCalculator.swift; sourceTree = "<group>"; };
 		36B70F58711407CE3C053857 /* ModernImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernImage.swift; sourceTree = "<group>"; };
+		37432F5F79B6EB1E00D376F6 /* ImageWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageWindow.swift; sourceTree = "<group>"; };
 		3DBDC0B460813AEE15965A22 /* PCAndUnix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCAndUnix.swift; sourceTree = "<group>"; };
 		44B0CFD24860A2270B3453ED /* Filters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filters.swift; sourceTree = "<group>"; };
 		52E003F650A30B91B7C647BD /* GSStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSStyle.swift; sourceTree = "<group>"; };
+		57DA0E5EA58D4AA87A0EC3DE /* MorePlatforms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorePlatforms.swift; sourceTree = "<group>"; };
 		5BB3A384864C55216590C4B1 /* ExtraViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraViews.swift; sourceTree = "<group>"; };
 		5F85A81A354450E0566EDF5E /* Menus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menus.swift; sourceTree = "<group>"; };
 		64C75F8ABE9185D908515776 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		667E93095C553388F8591823 /* PackBytes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackBytes.swift; sourceTree = "<group>"; };
 		6A38E96724E78B28DA687FF7 /* SHRFormats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHRFormats.swift; sourceTree = "<group>"; };
+		6B0A6937D9B2FBD3586F198F /* AppleIISave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleIISave.swift; sourceTree = "<group>"; };
 		7256195D06BB349B145F713B /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		7D2B067412C164AB9BB27B70 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		8311B0C8C913A0B95C399851 /* IIgsIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IIgsIcons.swift; sourceTree = "<group>"; };
 		87AAC00E8B0308802AB05961 /* GSRemapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSRemapApp.swift; sourceTree = "<group>"; };
 		890114DD12564BD0D2FCFC92 /* IIgsFormats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IIgsFormats.swift; sourceTree = "<group>"; };
 		933348D216E6327B6AF6051A /* Remapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Remapper.swift; sourceTree = "<group>"; };
 		9566C4737D0660E5CDCDAED6 /* libSCCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSCCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		97511CD629ABC79F530FBC85 /* PatternTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternTable.swift; sourceTree = "<group>"; };
+		982C861DACC37D559F84B0BA /* TGAandPICT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TGAandPICT.swift; sourceTree = "<group>"; };
+		A6D6BB57E21421207E1C9305 /* FormatInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatInfo.swift; sourceTree = "<group>"; };
 		AAFE162FD2D0AF1DD64AC22D /* FormatRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatRegistry.swift; sourceTree = "<group>"; };
 		B256907554ACA5CC42C873EC /* PalettePrototype.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PalettePrototype.swift; sourceTree = "<group>"; };
 		B43EEE10F07960386B61046E /* PrintChar21.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PrintChar21.ttf; sourceTree = "<group>"; };
+		B71AB64BED27B6A2CECE236A /* AppleIIMore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleIIMore.swift; sourceTree = "<group>"; };
 		BA71C4A8E2390E368D9EFA3D /* ShastonLicense.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = ShastonLicense.txt; sourceTree = "<group>"; };
 		C14F2FF2AFD03ECE7199B3A8 /* RemapDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemapDialog.swift; sourceTree = "<group>"; };
 		C15EC8D8109A706814EFF649 /* SaveFormats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveFormats.swift; sourceTree = "<group>"; };
@@ -114,6 +128,8 @@
 				5BB3A384864C55216590C4B1 /* ExtraViews.swift */,
 				87AAC00E8B0308802AB05961 /* GSRemapApp.swift */,
 				52E003F650A30B91B7C647BD /* GSStyle.swift */,
+				8311B0C8C913A0B95C399851 /* IIgsIcons.swift */,
+				37432F5F79B6EB1E00D376F6 /* ImageWindow.swift */,
 				5F85A81A354450E0566EDF5E /* Menus.swift */,
 				128C51D8244A07919905FAE6 /* Printing.swift */,
 				C14F2FF2AFD03ECE7199B3A8 /* RemapDialog.swift */,
@@ -126,15 +142,19 @@
 			isa = PBXGroup;
 			children = (
 				D138D9E774EB0FCEC763E72A /* AppleII.swift */,
+				B71AB64BED27B6A2CECE236A /* AppleIIMore.swift */,
+				6B0A6937D9B2FBD3586F198F /* AppleIISave.swift */,
 				890114DD12564BD0D2FCFC92 /* IIgsFormats.swift */,
 				108C945B9959DDB4119A2ACC /* Independent.swift */,
 				C40E8975D5FB4C4397BE3CCB /* LZW.swift */,
 				36B70F58711407CE3C053857 /* ModernImage.swift */,
+				57DA0E5EA58D4AA87A0EC3DE /* MorePlatforms.swift */,
 				1D95F7B8688279498488C9AC /* OtherPlatforms.swift */,
 				3DBDC0B460813AEE15965A22 /* PCAndUnix.swift */,
 				C15EC8D8109A706814EFF649 /* SaveFormats.swift */,
 				6A38E96724E78B28DA687FF7 /* SHRFormats.swift */,
 				DA3822CF082899E32EE93251 /* TextGlyphs.swift */,
+				982C861DACC37D559F84B0BA /* TGAandPICT.swift */,
 			);
 			path = Formats;
 			sourceTree = "<group>";
@@ -153,6 +173,7 @@
 			children = (
 				7D2B067412C164AB9BB27B70 /* Color.swift */,
 				44B0CFD24860A2270B3453ED /* Filters.swift */,
+				A6D6BB57E21421207E1C9305 /* FormatInfo.swift */,
 				AAFE162FD2D0AF1DD64AC22D /* FormatRegistry.swift */,
 				0BE0CC79A4AD986D2FB87F6A /* MonoImage.swift */,
 				667E93095C553388F8591823 /* PackBytes.swift */,
@@ -257,8 +278,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D88070A5E32DD47DF5DB8A73 /* GSRemap */,
 				B4BD9D3E968C51458C823293 /* SCCore */,
+				D88070A5E32DD47DF5DB8A73 /* GSRemap */,
 			);
 		};
 /* End PBXProject section */
@@ -303,14 +324,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A17DB1D4AB1D17219DF0EC1 /* AppleII.swift in Sources */,
+				D3F4128B8CBC224FD713AAC4 /* AppleIIMore.swift in Sources */,
+				C51C0FF887C3E8551D68CA7D /* AppleIISave.swift in Sources */,
 				57B894AEDE35C83904094B9A /* Color.swift in Sources */,
 				30671B2099E0A12E072C3A58 /* Filters.swift in Sources */,
+				08BDEF1B9FF3C41B6AFCD875 /* FormatInfo.swift in Sources */,
 				2B39E5AD42571C0D1B4E5BC1 /* FormatRegistry.swift in Sources */,
 				88C0D57B081A7C1E039AA09E /* IIgsFormats.swift in Sources */,
 				311AC60BE095D434E6240AFB /* Independent.swift in Sources */,
 				DF45B22D7D32B00D9039566E /* LZW.swift in Sources */,
 				3BF83B2A885226FA9E53FF02 /* ModernImage.swift in Sources */,
 				4093B21A0F72A46C79F12B4D /* MonoImage.swift in Sources */,
+				E65F33047954CA8CD22BE686 /* MorePlatforms.swift in Sources */,
 				E3EF1F7D89E3A884085CFCD1 /* OtherPlatforms.swift in Sources */,
 				186B18FDE39F112E7FD1C246 /* PCAndUnix.swift in Sources */,
 				13677D1E394A7C868C3D993F /* PackBytes.swift in Sources */,
@@ -321,6 +346,7 @@
 				C263DA036CAFE6506FB44A64 /* SHRFormats.swift in Sources */,
 				1D7397410D19F3590DB56906 /* SaveFormats.swift in Sources */,
 				C77F6533FB55059E1CA789CD /* ScreenImage.swift in Sources */,
+				5ABCAA2ADDDC8FCAB80DB70F /* TGAandPICT.swift in Sources */,
 				8C05DA8CE441B712FB254B6B /* TextGlyphs.swift in Sources */,
 				72E839C92BD520957EC3700A /* TrueColorImage.swift in Sources */,
 			);
@@ -335,6 +361,8 @@
 				036AF6E00948847E2401750B /* ExtraViews.swift in Sources */,
 				5AC316F4DF055409360CA884 /* GSRemapApp.swift in Sources */,
 				0F1BC14042596EA39C20D35A /* GSStyle.swift in Sources */,
+				8E36DC70EA7D1ABB6B5E56E8 /* IIgsIcons.swift in Sources */,
+				DB97928E8B129FD6F81976A5 /* ImageWindow.swift in Sources */,
 				B306E3D9EF8068F5C5CB76BB /* Menus.swift in Sources */,
 				BB027D7FB2CD1169FE5A452E /* Printing.swift in Sources */,
 				40EF014A1E37290DBB4BA354 /* RemapDialog.swift in Sources */,

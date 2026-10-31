@@ -127,3 +127,39 @@ final class FilterMonoTests: XCTestCase {
         XCTAssertEqual(mono.pixels, [0, 1, 1])
     }
 }
+
+final class CropTests: XCTestCase {
+    func testCropScreenKeepsLinesAndTables() {
+        var s = ScreenImage(width: 8, height: 4, is640: false)
+        for y in 0..<4 { for x in 0..<8 { s.pixels[y * 8 + x] = UInt8((x + y) & 15) } }
+        s.scbs[2] = 0x03
+        let c = s.cropped(left: 2, top: 1, right: 6, bottom: 3)
+        XCTAssertEqual(c.width, 4)
+        XCTAssertEqual(c.height, 2)
+        XCTAssertEqual(c.pixels[0], 3)
+        XCTAssertEqual(c.scbs[1], 0x03)
+    }
+
+    func testCrop3200TakesItsLinesTables() {
+        var s = ScreenImage(width: 4, height: 4, is640: false, palettes: (0..<200).map { [Color12](repeating: Color12($0), count: 16) })
+        s.scbs = [UInt8](repeating: 0, count: 4)
+        let c = s.cropped(left: 0, top: 2, right: 4, bottom: 4)
+        XCTAssertEqual(c.palettes.count, 2)
+        XCTAssertEqual(c.palettes[0][0], 2)
+    }
+
+    func testCropTrueAndMono() {
+        var t = TrueColorImage(width: 4, height: 3)
+        t.setPixel(2, 1, 9, 8, 7)
+        let c = t.cropped(left: 2, top: 1, right: 9, bottom: 9)
+        XCTAssertEqual(c.width, 2)
+        XCTAssertEqual(c.height, 2)
+        XCTAssertEqual(c.pixel(0, 0).r, 9)
+        var m = MonoImage(width: 5, height: 5, white: true)
+        m.pixels[1 * 5 + 3] = 0
+        let d = m.cropped(left: 3, top: 1, right: 5, bottom: 2)
+        XCTAssertEqual(d.width, 2)
+        XCTAssertEqual(d.height, 1)
+        XCTAssertEqual(d.pixels, [0, 1])
+    }
+}

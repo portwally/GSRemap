@@ -5,7 +5,8 @@ import UniformTypeIdentifiers
 // Command-line front end to the conversion engine, mainly for testing.
 //   sc4 view  <shr file> <out.png>
 //   sc4 refork <resource fork> <out>     (rewrite a IIgs resource fork)
-//   sc4 load  <file> <out.png> <format id> [picture number]   (any format in the Load formats list)
+//   sc4 load  <file> <out.png> <format id> [picture number]   (any format in the Load formats list;
+//             out.rgb: raw RGB at the picture's size, for checks against MegaconvertGS)
 //   sc4 remap <picture> <out> [--mode 320|640|640d|multi] [--palette default|gray|calc|other:N]
 //                             [--alg closest|pattern|error] [--size WxH] [--quick]
 // <out> ends in .png (preview) or .c1 / .packed / .apf / .pw (SHR formats).
@@ -20,9 +21,23 @@ func bytes(_ path: String) -> [UInt8] {
     return [UInt8](d)
 }
 
+/// Raw RGB, row by row (the picture's own size): for checks against other programs.
+func rgb(_ screen: ScreenImage) -> [UInt8] {
+    var out = [UInt8]()
+    out.reserveCapacity(screen.width * screen.height * 3)
+    for y in 0..<screen.height {
+        for x in 0..<screen.width {
+            let c = Int(screen.colour(x, y))
+            out += [UInt8((c >> 8 & 15) * 17), UInt8((c >> 4 & 15) * 17), UInt8((c & 15) * 17)]
+        }
+    }
+    return out
+}
+
 func write(_ screen: ScreenImage, to path: String) throws {
     let url = URL(fileURLWithPath: path)
     switch url.pathExtension.lowercased() {
+    case "rgb": try Data(rgb(screen)).write(to: url)
     case "png":
         guard let image = ModernImage.cgImage(screen) else { fail("Can't render") }
         try ModernImage.save(image, to: url, type: .png)
@@ -62,14 +77,28 @@ do {
             try write(screen, to: output)
         case .trueColor(let image):
             print("true color \(image.width)x\(image.height)")
+            if output.lowercased().hasSuffix(".rgb") { try Data(image.rgb).write(to: URL(fileURLWithPath: output)); break }
             guard let cg = ModernImage.cgImage(image) else { fail("Can't render") }
             try ModernImage.save(cg, to: URL(fileURLWithPath: output), type: .png)
         case .monochrome(let mono):
             print("monochrome \(mono.width)x\(mono.height), \(mono.whiteCount) white pixels")
+            if output.lowercased().hasSuffix(".rgb") {
+                try Data(mono.pixels.flatMap { $0 != 0 ? [255, 255, 255] as [UInt8] : [0, 0, 0] }).write(to: URL(fileURLWithPath: output)); break
+            }
             guard let cg = ModernImage.cgImage(width: mono.width, height: mono.height, rgba: mono.rgba()) else { fail("Can't render") }
             try ModernImage.save(cg, to: URL(fileURLWithPath: output), type: .png)
         case .choice: fail("Nested choice")
         }
+    case "save":
+        // sc4 save <picture> <out> <load format id> <save format id> [dither 0-2] [fit 0/1]
+        guard args.count >= 2,
+              let lf = FormatRegistry.loadCategories.flatMap(\.formats).first(where: { $0.id == args[0] }),
+              let sf = FormatRegistry.saveFormats.first(where: { $0.id == args[1] }) else { fail("formats?") }
+        guard case .screen(let screen) = try lf.load(URL(fileURLWithPath: input)) else { fail("not a screen image") }
+        var options = SaveOptions()
+        if args.count > 2 { options.appleIIDither = Int(args[2]) ?? 0 }
+        if args.count > 3 { options.appleIIKeepProportions = args[3] == "1" }
+        try sf.save(screen, URL(fileURLWithPath: output), options)
     case "remap":
         var mode = GraphicMode.mode320
         var palette = "calc"

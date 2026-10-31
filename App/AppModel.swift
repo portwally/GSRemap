@@ -45,10 +45,25 @@ final class AppModel: ObservableObject {
     @Published var categoryIndex = 1
     @Published var formatIndex = 0
     @Published var saveIndex = 2
-    @Published var screen: ScreenImage?
-    @Published var trueColor: TrueColorImage?
+    @Published var screen: ScreenImage? { didSet { imageReplaced(1) } }
+    @Published var trueColor: TrueColorImage? { didSet { imageReplaced(2) } }
     @Published var showTrueColor = false
-    @Published var mono: MonoImage?
+    @Published var mono: MonoImage? { didSet { imageReplaced(3) } }
+    // The image window's state (see ImageWindow.swift). Selections and pixel sizes are kept per image type.
+    @Published var zoom = 0
+    @Published var tool = 1
+    @Published var selections: [Int: ImageSelection] = [:]
+    @Published var pixSizes: [Int: Int] = [:]
+    @Published var originX = 0
+    @Published var originY = 0
+    @Published var peekPoint: ImagePoint?
+    @Published var popup: ImagePopup?
+    var viewport = CGSize(width: 300, height: 100)
+    var imageVersion = 0
+    var unitCache: (key: [Int], image: CGImage)?
+    var greyCache: (version: Int, grey: Bool)?
+    var drag: SelectionDrag?
+    var lastDownTime = Date.distantPast
     /// Files still waiting from a multiple-file Load.
     @Published var queue: [(URL, LoadFormat)] = []
     @Published var pickingHelp = false
@@ -108,11 +123,13 @@ final class AppModel: ObservableObject {
     var formats: [LoadFormat] { categories[categoryIndex].formats }
     var hasImage: Bool { screen != nil || trueColor != nil || mono != nil }
 
+    /// " name (320, 1) ": the mode and the highest palette number used plus one, as in SuperConvert.
     var imageTitle: String {
         guard hasImage else { return "No image" }
-        guard let screen else { return "\(fileName) (???)" }
-        let tables = screen.palettes.count > 16 ? 200 : Set(screen.scbs.map { $0 & 15 }).count
-        return "\(fileName) (\(screen.is640 ? "640" : "320"), \(tables) palette\(tables == 1 ? "" : "s"))"
+        let name = fileName.count > 31 ? String(fileName.prefix(30)) + "\u{2026}" : fileName
+        guard let screen else { return "\(name) (???)" }
+        let tables = screen.palettes.count > 16 ? 16 : (screen.scbs.map { Int($0 & 15) }.max() ?? 0) + 1
+        return "\(name) (\(screen.is640 ? "640" : "320"),\(tables < 10 ? " " : "")\(tables))"
     }
 
     // MARK: Loading and saving
@@ -241,6 +258,7 @@ final class AppModel: ObservableObject {
     }
 
     private func show(_ loaded: LoadedImage) {
+        zoom = 0
         switch loaded {
         case .screen(let s):
             screen = s

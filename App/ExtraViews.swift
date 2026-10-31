@@ -7,26 +7,72 @@ struct HelpDialog: View {
     let menus: [(String, [MenuEntry])]
 
     private var topics: [(String, String)] {
+        // The general topics, from MegaconvertGS's help (MCGS.Help), told the way GS Remap works.
         var pages: [(String, String)] = [
-            ("How it works", """
-                GS Remap keeps up to three images in memory: a screen image (what an Apple IIgs can \
-                show), a true color image and a monochrome image.
+            ("Welcome", """
+                GS Remap turns pictures from many computers and file formats into Apple IIgs \
+                Super Hi-Res screens, and saves them in the formats the IIgs, the Apple II and \
+                today's computers read. It is a port of SuperConvert by Jason Harper and Ian \
+                Brumby, with the formats MegaconvertGS added.
 
-                Pick a computer type and a format in the Load formats window, then Load. Formats \
-                marked with * give a true color image and open the Remap dialog; the others give a \
-                screen image directly.
+                Choose a topic in the list. The pages after these describe every menu; Menu item \
+                help, then any menu item, shows one item's line.
+                """),
+            ("Loading pictures", """
+                In the Load formats window, choose the computer the picture comes from \
+                (Computer type), then its format (Specific type), and click Load (or \
+                double-click the format, or choose File > Load & convert).
 
-                Pick a format in the Save formats window and Save to write the screen image.
+                Several files may be chosen at once: the first one loads, and Load next loads \
+                the next one waiting.
+
+                Formats marked with * give a true color image and open the Remap dialog; the \
+                others give a screen image directly. Info on format describes the format chosen \
+                in the list.
+                """),
+            ("Saving pictures", """
+                Choose a format in the Save formats window and click Save (or File > Save \
+                conversion). Finder icons, icon resources, hex data and the Apple II screens ask \
+                for their options first. Info on format describes the format chosen.
+
+                Apple IIgs and Apple II files are saved with a suffix such as #C00002, so \
+                CiderPress and cadius give them the right ProDOS file type when they are copied \
+                to a disk image.
+                """),
+            ("The three kinds of image", """
+                A picture can be held three ways at once: as a screen image (Super Hi-Res \
+                pixels and color tables), as a true color image (red, green and blue for every \
+                pixel) and as a monochrome image (one bit a pixel). The Image window shows one \
+                of them: choose which with Screen, True color and Mono at its top.
+
+                Saving writes the screen image; Remap makes it from the true color image, and \
+                the Monochrome menu from the monochrome one.
                 """),
             ("Remapping", """
-                Remap turns a true color image into a screen image.
-
-                Graphic mode sets the IIgs screen mode. Palette to use sets the colors: Calculated \
-                finds the best ones for this picture, Default color keeps the standard palette. \
-                Pattern dither mixes palette colors in small patterns; Error diffusion is offered \
-                with grayscale and black & white palettes.
+                A true color picture becomes a screen image through Remap (True color > Convert \
+                to screen). Its dialog chooses the graphic mode (320, 640, 640 dither mode, or a \
+                palette for every line), the palette (calculated for the picture, the default, \
+                greys, another picture's, or a stored one), the rendering (closest color, a \
+                pattern, or error diffusion) and the size. Error diffusion is offered with \
+                grayscale and black & white palettes.
 
                 Quick remap ignores the options and gives a one-screen preview.
+                """),
+            ("True color filters", """
+                Histogram equalization spreads the picture's brightness over the whole range. \
+                Median and Sigma filters remove noise. Emboss image makes it look raised. Blur \
+                image and Sharpen image soften or sharpen it by a factor. Solarize image inverts \
+                its brighter half. Find edges outlines it. Increase and Decrease contrast \
+                stretch or flatten its colors. Mirror, Flip and Rotate turn it.
+
+                Each works on the true color image; Remap then makes the screen image.
+                """),
+            ("Monochrome images", """
+                Convert to monochrome (in the Screen and True color menus) makes a one bit a \
+                pixel image, enlarged two or four times if wanted, by error diffusion, a \
+                pattern dither, a 50% threshold or a halftone. The Monochrome menu turns it \
+                back into a screen or true color image (its aspect, scaling, mode and how \
+                greys are kept) and makes its negative.
                 """),
         ]
         for (name, entries) in menus {

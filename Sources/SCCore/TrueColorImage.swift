@@ -111,3 +111,17 @@ extension TrueColorImage {
         return image
     }
 }
+
+extension TrueColorImage {
+    /// The part between `left`/`top` (inclusive) and `right`/`bottom` (exclusive), clamped to the image.
+    public func cropped(left: Int, top: Int, right: Int, bottom: Int) -> TrueColorImage {
+        let l = max(0, min(left, width)), r = max(l, min(right, width))
+        let t = max(0, min(top, height)), b = max(t, min(bottom, height))
+        var out = TrueColorImage(width: r - l, height: b - t, tallPixels: tallPixels)
+        for y in t..<b {
+            let s = (y * width + l) * 3
+            out.rgb.replaceSubrange(((y - t) * (r - l) * 3)..<((y - t + 1) * (r - l) * 3), with: rgb[s..<(s + (r - l) * 3)])
+        }
+        return out
+    }
+}
