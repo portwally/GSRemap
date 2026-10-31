@@ -53,7 +53,7 @@ var args = Array(CommandLine.arguments.dropFirst())
 if args.first == "list" {
     // The load formats by category, as JSON: used for the homepage's interactive Load formats window.
     let categories = FormatRegistry.loadCategories.map { c -> [String: Any] in
-        ["id": c.id, "name": c.name, "formats": c.formats.map { ["id": $0.id, "name": $0.listName, "info": FormatInfo.load[$0.id] ?? ""] }]
+        ["id": c.id, "name": c.name, "formats": c.formats.map { ["id": $0.id, "name": $0.name, "info": FormatInfo.load[$0.id] ?? ""] }]
     }
     let data = try JSONSerialization.data(withJSONObject: categories, options: [.prettyPrinted, .sortedKeys])
     print(String(decoding: data, as: UTF8.self))
