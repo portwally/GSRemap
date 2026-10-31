@@ -52,6 +52,7 @@ struct GSWindow<Content: View>: View {
                 .lineLimit(1)
                 .foregroundColor(active ? .white : .black)
                 .frame(maxWidth: .infinity)
+                .padding(.top, GS.appearance == .shaston640 ? 4 : 0)   // Shaston 640 sits high in its line
                 .frame(height: 20)
                 .background(active ? Color.black : Color.white)
             Rectangle().fill(Color.black).frame(height: 1)
@@ -72,6 +73,7 @@ struct GSButtonStyle: ButtonStyle {
             .font(GS.font)
             .foregroundColor(configuration.isPressed ? .white : (enabled ? .black : .gray))
             .padding(.horizontal, 12)
+            .padding(.top, GS.appearance == .shaston640 ? 4 : 0)   // Shaston 640 sits high in its line
             .frame(height: 20)
             .background(RoundedRectangle(cornerRadius: 10).fill(configuration.isPressed ? Color.black : Color.white))
             .overlay(RoundedRectangle(cornerRadius: 10).stroke(enabled ? Color.black : Color.gray,
