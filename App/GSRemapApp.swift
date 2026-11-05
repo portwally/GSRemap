@@ -1,3 +1,4 @@
+import AppKit
 import SCCore
 import SwiftUI
 
@@ -20,10 +21,13 @@ struct GSRemapApp: App {
                 DesktopView(model: model)
                     .scaleEffect(scale)
                     .frame(width: geo.size.width, height: geo.size.height)
-                    .background(Color.black)
+                    .background(WindowDragArea().background(GS.desktop))
             }
             .frame(minWidth: 640, minHeight: 400)
+            .background(WindowConfigurator())
+            .ignoresSafeArea()
         }
+        .windowStyle(.hiddenTitleBar)
         .defaultSize(width: 1280, height: 800)
         .commands {
             CommandGroup(replacing: .newItem) {
@@ -192,5 +196,56 @@ enum Snapshot {
             try? ModernImage.save(cg, to: URL(fileURLWithPath: path), type: .png)
         }
         exit(0)
+    }
+}
+
+/// Hides the Mac title bar and its buttons, so only the IIgs desktop shows. The window keeps
+/// its frame: it still resizes from the edges and works with Command-W, Command-M and full screen.
+private struct WindowConfigurator: NSViewRepresentable {
+    func makeNSView(context: Context) -> NSView {
+        let view = NSView()
+        DispatchQueue.main.async {
+            guard let window = view.window else { return }
+            window.titlebarAppearsTransparent = true
+            window.titleVisibility = .hidden
+            for button in [NSWindow.ButtonType.closeButton, .miniaturizeButton, .zoomButton] {
+                window.standardWindowButton(button)?.isHidden = true
+            }
+            // Dragging in the picture makes a selection, so the window moves only from WindowDragArea.
+            window.isMovableByWindowBackground = false
+        }
+        return view
+    }
+
+    func updateNSView(_ nsView: NSView, context: Context) {}
+}
+
+/// An empty area that moves the window when dragged and zooms it on a double click, like a title bar.
+struct WindowDragArea: View {
+    @State private var start: (mouse: NSPoint, origin: NSPoint)?
+
+    @ViewBuilder var body: some View {
+        let area = Color.clear
+            .contentShape(Rectangle())
+            .onTapGesture(count: 2) { Self.window?.zoom(nil) }
+        if #available(macOS 15, *) {
+            area.gesture(WindowDragGesture())   // macOS moves the window, as with a title bar
+        } else {
+            area.gesture(DragGesture(minimumDistance: 1)
+                .onChanged { _ in
+                    guard let window = Self.window else { return }
+                    let mouse = NSEvent.mouseLocation
+                    if start == nil { start = (mouse, window.frame.origin) }
+                    guard let start else { return }
+                    window.setFrameOrigin(NSPoint(x: start.origin.x + mouse.x - start.mouse.x,
+                                                  y: start.origin.y + mouse.y - start.mouse.y))
+                }
+                .onEnded { _ in start = nil })
+        }
+    }
+
+    /// The app's window, even while another app is in front.
+    private static var window: NSWindow? {
+        NSApp.keyWindow ?? NSApp.mainWindow ?? NSApp.windows.first { $0.isVisible && $0.canBecomeMain }
     }
 }

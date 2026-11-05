@@ -72,12 +72,64 @@ struct GSButtonStyle: ButtonStyle {
         configuration.label
             .font(GS.font)
             .foregroundColor(configuration.isPressed ? .white : (enabled ? .black : .gray))
-            .padding(.horizontal, 12)
-            .padding(.top, GS.appearance == .shaston640 ? 4 : 0)   // Shaston 640 sits high in its line
-            .frame(height: 20)
-            .background(RoundedRectangle(cornerRadius: 10).fill(configuration.isPressed ? Color.black : Color.white))
-            .overlay(RoundedRectangle(cornerRadius: 10).stroke(enabled ? Color.black : Color.gray,
-                                                               lineWidth: isDefault ? 3 : 1))
+            .padding(.horizontal, isDefault ? 14 : 12)
+            .padding(.top, GS.appearance == .shaston640 ? 2 : 0)   // Shaston 640 sits high in its line
+            .frame(height: isDefault ? 24 : 20)   // the heavy outline goes around a normal-sized button
+            .background(PixelButtonFrame(filled: configuration.isPressed, rings: isDefault ? 3 : 1,
+                                         outline: enabled ? .black : .gray))
+    }
+}
+
+/// A IIgs push button's rounded outline, drawn in screen pixels so its corners step like the
+/// original's: one pixel is a point wide and two points tall (640 mode on a 640 x 400 desktop).
+struct PixelButtonFrame: View {
+    var filled = false
+    /// 1 for an ordinary button, more for the default button's heavy outline.
+    var rings = 1
+    var outline = Color.black
+
+    var body: some View {
+        Canvas { context, size in
+            let columns = Int(size.width), rows = Int(size.height / 2)
+            guard columns > 4, rows > 2 else { return }
+            /// How far row `row` of a ring starts in from the left, for a rounded end `rx` wide.
+            func inset(_ row: Int, _ rowCount: Int, _ rx: Double) -> Int {
+                let ry = Double(rowCount) / 2
+                let dy = abs(Double(row) + 0.5 - ry)
+                guard dy < ry else { return 0 }
+                return Int((rx - rx * (1 - (dy / ry) * (dy / ry)).squareRoot()).rounded())
+            }
+            func pixels(_ x: Int, _ row: Int, _ width: Int, _ color: Color) {
+                guard width > 0 else { return }
+                context.fill(Path(CGRect(x: x, y: row * 2, width: width, height: 2)), with: .color(color))
+            }
+            let rx = min(10, Double(columns) / 2)
+            // The inside: white, or black while pressed.
+            for row in 0..<rows {
+                let i = inset(row, rows, rx)
+                pixels(i, row, columns - 2 * i, filled ? .black : .white)
+            }
+            // The outline, one ring inside the other. The heavy outline is 3 columns at the sides
+            // but 2 rows at the top and bottom, because a pixel is twice as tall as it is wide.
+            let offsets = [(0, 0), (1, 0), (2, 1)].prefix(rings)
+            for (dx, dy) in offsets {
+                let top = dy, count = rows - 2 * dy, left = dx, width = columns - 2 * dx
+                guard count > 2, width > 4 else { break }
+                let ringRx = max(2, rx - Double(dx))
+                for row in 0..<count {
+                    let i = inset(row, count, ringRx)
+                    if row == 0 || row == count - 1 {
+                        pixels(left + i, top + row, width - 2 * i, outline)
+                        continue
+                    }
+                    // Join each step to the rows above and below, so the edge has no gaps.
+                    let reach = max(i, inset(row - 1, count, ringRx), inset(row + 1, count, ringRx))
+                    let run = max(1, reach - i)
+                    pixels(left + i, top + row, run, outline)
+                    pixels(left + width - i - run, top + row, run, outline)
+                }
+            }
+        }
     }
 }
 

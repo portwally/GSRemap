@@ -62,7 +62,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		01299F907BEC5773BB7C4CC7 /* GSRemap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GSRemap.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		01299F907BEC5773BB7C4CC7 /* GS Remap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GS Remap.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BE0CC79A4AD986D2FB87F6A /* MonoImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonoImage.swift; sourceTree = "<group>"; };
 		0C8ABB44A7B72F06DBA1C8B0 /* DesktopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesktopView.swift; sourceTree = "<group>"; };
 		108C945B9959DDB4119A2ACC /* Independent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Independent.swift; sourceTree = "<group>"; };
@@ -162,7 +162,7 @@
 		5BBFB2008455BC8A6A9AEF17 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				01299F907BEC5773BB7C4CC7 /* GSRemap.app */,
+				01299F907BEC5773BB7C4CC7 /* GS Remap.app */,
 				9566C4737D0660E5CDCDAED6 /* libSCCore.a */,
 			);
 			name = Products;
@@ -247,7 +247,7 @@
 			packageProductDependencies = (
 			);
 			productName = GSRemap;
-			productReference = 01299F907BEC5773BB7C4CC7 /* GSRemap.app */;
+			productReference = 01299F907BEC5773BB7C4CC7 /* GS Remap.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -387,7 +387,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				ENABLE_HARDENED_RUNTIME = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "GS Remap";
@@ -397,7 +397,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.1.2;
+				MARKETING_VERSION = 1.2;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -535,7 +535,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				ENABLE_HARDENED_RUNTIME = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "GS Remap";
@@ -545,7 +545,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.1.2;
+				MARKETING_VERSION = 1.2;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",

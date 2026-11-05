@@ -144,7 +144,7 @@ struct DesktopView: View {
                     }
                     .zIndex(open ? 2 : 1)
             }
-            Spacer(minLength: 0)
+            WindowDragArea()   // the empty part of the menu bar moves the window
         }
         .frame(width: DesktopView.size.width, height: 19, alignment: .leading)
         .background(Color.white)
